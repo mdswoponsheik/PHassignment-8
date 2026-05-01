@@ -1,0 +1,81 @@
+[
+  {
+    "module": 1,
+    "title": "Introduction to Web Development",
+    "topics": [
+      "What is Web Development?",
+      "Frontend vs Backend",
+      "How websites work",
+      "Setup development environment"
+    ]
+  },
+  {
+    "module": 2,
+    "title": "HTML Basics",
+    "topics": [
+      "HTML structure",
+      "Tags and elements",
+      "Forms and inputs",
+      "Semantic HTML"
+    ]
+  },
+  {
+    "module": 3,
+    "title": "CSS Styling",
+    "topics": [
+      "CSS selectors",
+      "Box model",
+      "Flexbox",
+      "Responsive design"
+    ]
+  },
+  {
+    "module": 4,
+    "title": "JavaScript Fundamentals",
+    "topics": [
+      "Variables and data types",
+      "Functions",
+      "DOM manipulation",
+      "Events"
+    ]
+  },
+  {
+    "module": 5,
+    "title": "React.js",
+    "topics": [
+      "Components",
+      "Props and state",
+      "Hooks",
+      "Routing"
+    ]
+  },
+  {
+    "module": 6,
+    "title": "Backend with Node.js",
+    "topics": [
+      "Node basics",
+      "Express.js",
+      "REST API",
+      "Authentication"
+    ]
+  },
+  {
+    "module": 7,
+    "title": "Database",
+    "topics": [
+      "MongoDB basics",
+      "CRUD operations",
+      "Mongoose",
+      "Data modeling"
+    ]
+  },
+  {
+    "module": 8,
+    "title": "Final Project",
+    "topics": [
+      "Build full stack project",
+      "Deploy application",
+      "Portfolio setup"
+    ]
+  }
+]

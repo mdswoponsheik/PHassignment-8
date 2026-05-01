@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "expertise": "Web Development",
+    "experience": "5 years",
+    "rating": 4.8,
+    "courses": 12,
+    "image": "https://i.postimg.cc/example-instructor1.png",
+    "bio": "Full-stack developer specializing in MERN stack."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "expertise": "Data Science",
+    "experience": "7 years",
+    "rating": 4.7,
+    "courses": 10,
+    "image": "https://i.postimg.cc/example-instructor2.png",
+    "bio": "Data scientist with expertise in Python and machine learning."
+  },
+  {
+    "id": 3,
+    "name": "Michael Lee",
+    "expertise": "UI/UX Design",
+    "experience": "6 years",
+    "rating": 4.6,
+    "courses": 8,
+    "image": "https://i.postimg.cc/example-instructor3.png",
+    "bio": "Creative designer focused on user-centered design."
+  },
+  {
+    "id": 4,
+    "name": "Sarah Johnson",
+    "expertise": "Digital Marketing",
+    "experience": "4 years",
+    "rating": 4.5,
+    "courses": 6,
+    "image": "https://i.postimg.cc/example-instructor4.png",
+    "bio": "Marketing expert in SEO, social media, and branding."
+  }
+]
