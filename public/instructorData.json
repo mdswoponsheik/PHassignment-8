@@ -6,7 +6,7 @@
     "experience": "5 years",
     "rating": 4.8,
     "courses": 12,
-    "image": "https://i.postimg.cc/example-instructor1.png",
+    "image": "https://i.ibb.co.com/9mkn0tNv/man-1.jpg",
     "bio": "Full-stack developer specializing in MERN stack."
   },
   {
@@ -16,7 +16,7 @@
     "experience": "7 years",
     "rating": 4.7,
     "courses": 10,
-    "image": "https://i.postimg.cc/example-instructor2.png",
+    "image": "https://i.ibb.co.com/WNYySv3W/woman-1.webp",
     "bio": "Data scientist with expertise in Python and machine learning."
   },
   {
@@ -26,7 +26,7 @@
     "experience": "6 years",
     "rating": 4.6,
     "courses": 8,
-    "image": "https://i.postimg.cc/example-instructor3.png",
+    "image": "https://i.ibb.co.com/KpCM07db/man-2.jpg",
     "bio": "Creative designer focused on user-centered design."
   },
   {
@@ -36,7 +36,12 @@
     "experience": "4 years",
     "rating": 4.5,
     "courses": 6,
-    "image": "https://i.postimg.cc/example-instructor4.png",
+    "image": "https://i.ibb.co.com/6Rk8QnYK/woman-2.webp",
     "bio": "Marketing expert in SEO, social media, and branding."
   }
 ]
+
+
+
+
+

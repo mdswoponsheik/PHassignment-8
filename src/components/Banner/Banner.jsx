@@ -5,7 +5,7 @@ const Banner = () => {
     <div >
       
         <img
-            src="/banner.png"
+            src="https://i.ibb.co.com/TDh2xkzf/banner.png"
             alt="banner"
             className="w-full h-130 object-cover rounded-sm"
           />

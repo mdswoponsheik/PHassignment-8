@@ -8,7 +8,7 @@ const LearningTips = () => {
         <div className='w-9/10 mx-auto pb-10'>
 
             <div className="text-center py-7">
-                <h2 className='text-center text-4xl sm:text-5xl font-bold '>Learning Tips</h2>
+                <h2 className='text-center text-4xl sm:text-5xl font-bold mb-1.5'>Learning Tips</h2>
                 <p className='text-xl md:text-2xl font-semibold'>Effective learning is not about studying harder, but studying smarter.</p>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
