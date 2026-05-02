@@ -12,7 +12,7 @@ const Banner = () => {
 
           {/* Overlay */}
           <div className="absolute inset-y-35  flex flex-col items-center justify-center">
-            <h1 className="text-black text-4xl md:text-7xl font-bold text-center px-4 animate-fadeIn">
+            <h1 className="text-black text-5xl md:text-7xl font-bold text-center px-4 animate-fadeIn">
              Upgrade Your Skills Today
             </h1>
             <br />
