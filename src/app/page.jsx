@@ -17,7 +17,7 @@ const istructorData = async () => {
 
 export default async function Home() {
   const istructors = await istructorData();
-  console.log(istructors);
+  // console.log(istructors);
   return (
     <div>
 
@@ -27,7 +27,7 @@ export default async function Home() {
       
 
       <div className="bg-purple-50 py-10 border-t mt-1">
-        <h2 className="text-center text-4xl sm:text-5xl font-bold my-10 ">{istructors?.length} Istructor Info</h2>
+        <h2 className="text-center text-4xl sm:text-5xl font-bold mb-10 ">{istructors?.length} Istructor Info</h2>
         <div className="w-9/10 mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-3">
 
 
@@ -55,11 +55,11 @@ export default async function Home() {
                   <div className="flex justify-around my-5">
                     <p className="text-2xl"><span className= "text-xl font-semibold">courses: </span><span className="font-bold text-yellow-500">{istructor?.courses}</span></p>
 
-                    <p className=" text-lg">
-                      <div className="flex items-center"><span className="font-semibold mr-2 "> Rating <br /></span>
-                      <span className="text-2xl font-bold text-green-400 mr-1">{istructor?.rating}</span></div>
+                    <div className=" text-lg">
+                      <p className="flex items-center"><span className="font-semibold mr-2 "> Rating <br /></span>
+                      <span className="text-2xl font-bold text-green-400 mr-1">{istructor?.rating}</span></p>
                       <span className="flex gap-0.5"><IoStar /><IoStar /><IoStar /><IoStar /><IoStarHalf /></span>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
