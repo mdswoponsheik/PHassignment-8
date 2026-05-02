@@ -1,9 +1,13 @@
-import Image from "next/image";
+import Banner from "@/components/Banner/Banner";
+import TOpCourses from "@/components/topcourses/TopCourses";
+
 
 export default function Home() {
   return (
-   <div>
-    <h2>heme</h2>
-   </div>
+    <div>
+      
+      <Banner></Banner>
+      <TOpCourses></TOpCourses>
+    </div>
   );
 }

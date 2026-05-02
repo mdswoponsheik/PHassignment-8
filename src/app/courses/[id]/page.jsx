@@ -12,7 +12,6 @@ const Details = ({ params }) => {
 
 
     const [courses, setCourses] = useState([]);
-    // const [curriculums, setCurriculums] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
