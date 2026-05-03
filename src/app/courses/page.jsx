@@ -10,13 +10,16 @@ import Link from "next/link";
 function Coursespage() {
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const res = await fetch("/coursesData.json");
       const data = await res.json();
       // console.log(data);
       setCourses(data);
+      setLoading(false);
     };
 
     fetchData();
@@ -40,6 +43,9 @@ function Coursespage() {
       </div>
 
       <h2 className="text-center mt-5 mb-2 text-3xl font-bold">ALL COURSES</h2>
+      {loading ? <div className="flex justify-center items-center h-64">
+          <span className="loading loading-spinner loading-lg"></span> 
+        </div> : 
       <div className="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto mb-10  gap-5 ">
         {filterCourses.map(course => {
           return <div key={course.id} className="">
@@ -72,6 +78,7 @@ function Coursespage() {
           </div>
         })}
       </div>
+      }
     </div>
   );
 }

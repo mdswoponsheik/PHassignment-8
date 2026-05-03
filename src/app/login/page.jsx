@@ -5,6 +5,7 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Loginpage = () => {
  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -19,9 +20,21 @@ const Loginpage = () => {
       password: userData.password,
       rememberMe: true,
       callbackURL: "/",
-    })
+    });
 
-    console.log("response", {data, error});
+    // console.log("response", {data, error});
+
+    
+        if (error) {
+          toast.error(`Login error: ${error.message}`);
+          router.push("/");
+        }
+    
+        if (data) {
+          toast.success("Login successful!");
+
+          router.push("/");
+        } 
 
   };
   return (

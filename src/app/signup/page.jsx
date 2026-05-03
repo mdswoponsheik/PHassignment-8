@@ -2,8 +2,11 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 
 
@@ -11,32 +14,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const SignUpPage = () => {
-  
+
+  const router = useRouter();
 const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-  //   const userData = Object.fromEntries(formData.entries());
-
-  //   try {
-  //     const { data, error } = await authClient.signUp.email({
-  //       name: userData.name,
-  //       email: userData.email,
-  //       password: userData.password,
-  //       callbackURL: "/",
-  //     });
-
-  //     console.log("Signup response:", data, error);
-
-  //     if (error) {
-  //       console.error("Signup error full:", error);
-  //       console.error("Stringified:", JSON.stringify(error));
-  //     }
-  //   } catch (err) {
-  //     console.error("Signup crashed:", err);
-  //   }
-  // };
 
  
   const onSubmit = async (e) => {
@@ -47,34 +27,31 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const { data, error } = await authClient.signUp.email({
       name: userData.name,
       email: userData.email,
+      image: userData.photo,
       password: userData.password,
       callbackURL: "/",
     })
 
-    // console.log("response", {data, error});
-
-  //   // const data = {};
-
-  //   // // Convert FormData to plain object
-  //   // formData.forEach((value, key) => {
-  //   //   data[key] = value.toString();
-  //   // });
-  //   // alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    console.log("response", {data, error});
 
     if (error) {
-      alert(`Signup error: ${error.message}`);
+      toast.error(`Signup error: ${error.message}`);
+      router.push("/");
     }
 
     if (data) {
-      alert("Signup successful! Please check your email for confirmation.");
+      toast.success("Signup successful! Please check your email for confirmation.");
+      router.push("/");
     }
   };
   
   const handleGoogle = async () => {
      const data = await authClient.signIn.social({
     provider: "google",
+    image:"photo",
+    callbackURL: "/",
   });
-    console.log("Google sign-in response:", data);
+    // console.log("Google sign-in response:", data);
   };
   return (
     <div className=" p-10 ">
@@ -108,6 +85,15 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
         >
           <Label>Email</Label>
           <Input name="email" placeholder="Enter Your Email" />
+          <FieldError />
+        </TextField>
+
+        <TextField
+          isRequired
+          type="text"
+          >
+          <Label>photo</Label>
+          <Input name="photo" placeholder="Enter photo URL" />
           <FieldError />
         </TextField>
 

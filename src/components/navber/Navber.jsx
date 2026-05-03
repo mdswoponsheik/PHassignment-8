@@ -38,9 +38,8 @@ console.log(user);
 
           {isPending?(<span className="navbar-end mr-10 loading loading-spinner loading-lg"></span>): user ? (
             <div className="navbar-end gap-1">
-              <h3 className="mr-4 text-2xl text-green-500 font-semibold">Welcome {user.name}</h3>
               <img src={user.image} alt={user.name}
-              className='rounded-full mx-3'   />
+              className='rounded-full w-12 h-12 mx-3'   />
               <button className="btn btn-error text-white text-xl" 
               onClick={async () => await authClient.signOut()}
               >Logout</button>
