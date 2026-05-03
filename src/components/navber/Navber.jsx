@@ -11,8 +11,8 @@ const user = session?.user;
 console.log(user);
  
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm px-10 py-5">
+    <div className='sticky top-0 z-50 bg-white'>
+      <div className="navbar bg-base-100 shadow-sm px-4 sm:px-10 py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,8 +38,8 @@ console.log(user);
 
           {isPending?(<span className="navbar-end mr-10 loading loading-spinner loading-lg"></span>): user ? (
             <div className="navbar-end gap-1">
-              <img src={user.image} alt={user.name}
-              className='rounded-full w-12 h-12 mx-3'   />
+              <Link href={`/profile`}><img src={user.image} alt={user.name}
+              className='rounded-full w-12 h-12 mx-3'   /></Link>
               <button className="btn btn-error text-white text-xl" 
               onClick={async () => await authClient.signOut()}
               >Logout</button>

@@ -69,6 +69,7 @@ function Coursespage() {
                       <IoStar /><IoStar /><IoStar /><IoStar /><IoStarHalf />
                     </div>
                   </div>
+                  <h2 className="text-lg font-bold text-green-500">Release Date:<br />{course.releaseDate}</h2>
                   <Link href={`/courses/${course.id}`}>
                   <Button className="w-full sm:w-auto">See Details</Button>
                   </Link>

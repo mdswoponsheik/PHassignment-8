@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner/Banner";
 import LearningTips from "@/components/LearningTips/LearningTips";
+import NewReleases from "@/components/NewReleases/NewReleases";
 import TOpCourses from "@/components/topcourses/TopCourses";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
@@ -24,6 +25,7 @@ export default async function Home() {
       <Banner></Banner>
       <TOpCourses></TOpCourses>
       <LearningTips></LearningTips>
+      <NewReleases></NewReleases>
       
 
       <div className="bg-purple-50 py-10 border-t mt-1">
