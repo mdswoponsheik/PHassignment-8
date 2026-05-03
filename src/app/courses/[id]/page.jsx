@@ -3,15 +3,16 @@
 import { use, useEffect, useState } from "react";
 import { Card, } from "@heroui/react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 
 
 const Details = ({ params }) => {
+
     const { id } = use(params);
-    // const { id } = await params;
-
-
+    const router = useRouter();
     const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,20 +28,19 @@ const Details = ({ params }) => {
 
     const coursesDetails = courses.find(c => c.id == id);
 
-    // useEffect(() => {
-    //     const curriculumFetch = async () => {
-    //         const res = await fetch("/curriculumData.json");
-    //         const data = await res.json();
 
-    //         setCurriculums(data);
-    //     };
+    useEffect(() => {
+        const rawUser = localStorage.getItem("user");
+        const user = rawUser ? JSON.parse(rawUser) : null;
 
-    //     curriculumFetch();
+        if (!user) {
+            router.push("/login");
+        } else {
+            setLoading(false);
+        }
+    }, []);
 
-    // }, []);
-
-    // console.log(curriculums);
-
+    if (loading) return <p>Loading...</p>;
 
 
     return (

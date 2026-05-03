@@ -1,31 +1,46 @@
+"use client"
+import EditProfile from '@/components/editProfile/EditProfile';
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link'
 import React from 'react'
 
+
 const MyProfilepage = () => {
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
+  console.log(user);
   return (
     <div>
-      <h2 className='text-center mt-5 mb-2 text-3xl font-bold'>My Profile</h2>
-      <div className="w-96 mx-auto gap-5 rounded-2xl bg-green-50 p-5">
-      <div className="  flex items-center ">
-        <div className="">
-          {/* <img className='rounded-full w-30'
-          src="" alt="" /> */}
+
+      {isPending ? (<span className="navbar-end mr-10 loading loading-spinner loading-lg"></span>) : (
+
+        <div className="w-96 mx-auto gap-5 rounded-2xl bg-green-50 p-5">
+          <h2 className='text-center  mb-2 text-3xl font-bold'>My Profile</h2>
+          <div className="  flex flex-col items-center ">
+            <div className="">
+              <img className='rounded-full w-30 h-30 flex justify-center items-center'
+                src={user?.image} alt={user?.name} />
+            </div>
+            <div className="space-y-4 text-center w-full">
+              <h2 className="text-2xl font-bold mt-3 bg-white p-2 rounded-lg w-full"><samp>Name: </samp> {user?.name}</h2>
+              <p className="text-md bg-white p-2 rounded-lg w-full"> <span className="font-bold">Email:</span> {user?.email}</p>
+            </div>
+
+          </div>
+          <div className="flex gap-3 m-5 justify-between ">
+            {/* <Link href="/profile/edit" className="ml-auto">
+              <button className="rounded-lg bg-blue-500 px-4 py-2 text-white">Edit Profile</button>
+            </Link> */}
+            {/* The button to open modal */}
+
+            
+
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button className="btn rounded-lg bg-blue-500 px-4 py-2 text-white" onClick={() => document.getElementById('my_modal_2').showModal()}>Edit Profile</button>
+            <EditProfile></EditProfile>
+          </div>
         </div>
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">User Name</h2>
-          <p className="text-sm text-gray-500"> <span className="font-bold">Email:</span></p>
-        </div>
-        
-      </div>
-      <div className="flex gap-3 m-5 justify-between border">
-        <Link href="/profile/edit" className="ml-auto">
-          <button className="rounded-lg bg-blue-500 px-4 py-2 text-white">Edit Profile</button>
-        </Link> 
-        <Link href="/login">
-          <button className="rounded-lg bg-red-500 px-4 py-2 text-white">Logout</button>
-        </Link>
-      </div>
-        </div>
+      )}
     </div>
   )
 }
