@@ -3,8 +3,12 @@ import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Loginpage = () => {
+ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -13,10 +17,11 @@ const Loginpage = () => {
     const { data, error } = await authClient.signIn.email({
       email: userData.email,
       password: userData.password,
+      rememberMe: true,
       callbackURL: "/",
     })
 
-    // console.log("response", {data, error});
+    console.log("response", {data, error});
 
   };
   return (
@@ -42,10 +47,11 @@ const Loginpage = () => {
             <FieldError />
           </TextField>
           <TextField
+          className="relative"
             isRequired
             minLength={8}
 
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             validate={(value) => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
@@ -61,6 +67,9 @@ const Loginpage = () => {
           >
             <Label>Password</Label>
             <Input name="password" placeholder="Enter your password" />
+            <span className="absolute right-4 top-9 cursor-pointer" onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+              { isPasswordVisible ? <FaEye /> : <FaEyeSlash /> }
+            </span>
             <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
             <FieldError />
           </TextField>

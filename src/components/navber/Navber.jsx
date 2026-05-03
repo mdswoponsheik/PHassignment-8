@@ -1,8 +1,15 @@
+"use client"
+
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react'
 
 const Navber = () => {
-
+ 
+const { data: session, isPending } = authClient.useSession();
+const user = session?.user;
+console.log(user);
+ 
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm px-10 py-5">
@@ -29,13 +36,25 @@ const Navber = () => {
           </ul>
         </div>
 
-
-        <div className="navbar-end">
-          <Link href={`/login`}><button
-           className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold mx-3  p-2'>LogIn</button></Link>
-          <Link href={`/signup`}><button
-           className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold p-2'>SingUp</button></Link>
-        </div>
+          {isPending?(<span className="navbar-end mr-10 loading loading-spinner loading-lg"></span>): user ? (
+            <div className="navbar-end gap-1">
+              <h3 className="mr-4 text-2xl text-green-500 font-semibold">Welcome {user.name}</h3>
+              <img src={user.image} alt={user.name}
+              className='rounded-full mx-3'   />
+              <button className="btn btn-error text-white text-xl" 
+              onClick={async () => await authClient.signOut()}
+              >Logout</button>
+            </div>
+              )
+               : (
+                <div className="navbar-end">
+                  <Link href={`/login`}><button
+                   className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold mx-3  p-2'>LogIn</button></Link>
+                  <Link href={`/signup`}><button
+                   className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold p-2'>SingUp</button></Link>
+                </div>
+              )}
+        
       </div>
     </div>
   )
