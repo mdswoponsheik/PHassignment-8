@@ -9,6 +9,7 @@ import Link from "next/link";
 
 function Coursespage() {
   const [courses, setCourses] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,12 +23,25 @@ function Coursespage() {
 
   }, []);
 
+  
+
+  const filterCourses = courses.filter(course => course.title.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div>
-      
+      <div className="m-6">
+        <input
+          type="text"
+          placeholder="Search courses..."
+          className= "w-full bg-white text-black placeholder:text-gray-500 border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
       <h2 className="text-center mt-5 mb-2 text-3xl font-bold">ALL COURSES</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto mb-10  gap-5 ">
-        {courses.map(course => {
+        {filterCourses.map(course => {
           return <div key={course.id} className="">
             <Card className="w-full bg-green-50 items-stretch md:flex-row">
               <div className=" shrink-0 overflow-hidden rounded-2xl h-[140px] sm:h-[140px] w-full sm:w-[260px] flex items-center">
