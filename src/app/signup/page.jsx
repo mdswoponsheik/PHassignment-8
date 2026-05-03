@@ -7,7 +7,11 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 
 
 
-const SingUpPage = () => {
+
+const SignUpPage = () => {
+  
+
+
   // const onSubmit = async (e) => {
   //   e.preventDefault();
   //   const formData = new FormData(e.target);
@@ -32,6 +36,7 @@ const SingUpPage = () => {
   //   }
   // };
 
+ 
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -44,23 +49,23 @@ const SingUpPage = () => {
       callbackURL: "/",
     })
 
-    console.log("responce", {data, error})
-    // const data = {};
-    // // Convert FormData to plain object
-    // formData.forEach((value, key) => {
-    //   data[key] = value.toString();
-    // });
-    // alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    console.log("response", {data, error});
+  //   // const data = {};
+  //   // // Convert FormData to plain object
+  //   // formData.forEach((value, key) => {
+  //   //   data[key] = value.toString();
+  //   // });
+  //   // alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
   };
 
 
   return (
     <div className=" p-10 ">
-      <h1 className="text-center text-4xl sm:text-5xl font-bold mb-10">SingUP</h1>
+      <h1 className="text-center text-4xl sm:text-5xl font-bold mb-10">Sign UP</h1>
       <Form className="flex w-120 mx-auto flex-col gap-4 bg-blue-100 rounded-2xl p-6" onSubmit={onSubmit}>
         <TextField
           isRequired
-          name="name"
+          
           validate={(value) => {
             if (value.length < 3) {
               return "Name must be at least 3 characters";
@@ -74,7 +79,7 @@ const SingUpPage = () => {
         </TextField>
         <TextField
           isRequired
-          name="email"
+          
           type="email"
           validate={(value) => {
             if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
@@ -90,7 +95,7 @@ const SingUpPage = () => {
         <TextField
           isRequired
           minLength={8}
-          name="password"
+         
           type="password"
           validate={(value) => {
             if (value.length < 8) {
@@ -110,6 +115,7 @@ const SingUpPage = () => {
           <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
           <FieldError />
         </TextField>
+       
         <div className="flex gap-2">
           <Button type="submit">
             <Check />
@@ -124,4 +130,4 @@ const SingUpPage = () => {
   )
 }
 
-export default SingUpPage
+export default SignUpPage

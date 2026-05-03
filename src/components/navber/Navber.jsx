@@ -33,7 +33,7 @@ const Navber = () => {
         <div className="navbar-end">
           <Link href={`/login`}><button
            className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold mx-3  p-2'>LogIn</button></Link>
-          <Link href={`/singup`}><button
+          <Link href={`/signup`}><button
            className='bg-green-50 border-green-500 border-1 rounded-lg text-green-500 text-xl font-semibold p-2'>SingUp</button></Link>
         </div>
       </div>
