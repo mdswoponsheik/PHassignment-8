@@ -3,12 +3,13 @@
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react'
+import NavLink from './share/NavLink';
 
 const Navber = () => {
  
 const { data: session, isPending } = authClient.useSession();
 const user = session?.user;
-console.log(user);
+// console.log(user);
  
   return (
     <div className='sticky top-0 z-50 bg-white'>
@@ -21,22 +22,22 @@ console.log(user);
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-green-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/courses">Courses</Link></li>
-              <li><Link href="/profile">My Profile</Link></li>
+              <li><NavLink href="/">Home</NavLink></li>
+              <li><NavLink href="/courses">Courses</NavLink></li>
+              <li><NavLink href="/profile">My Profile</NavLink></li>
             </ul>
           </div>
           <a className="text-green-500 font-bold text-3xl">OnlineBD</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal  px-1">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/courses">Courses</Link></li>
-            <li><Link href="/profile">My Profile</Link></li>
+          <ul className="menu menu-horizontal text-lg px-1">
+            <li><NavLink href="/">Home</NavLink></li>
+            <li><NavLink href="/courses">Courses</NavLink></li>
+            <li><NavLink href="/profile">My Profile</NavLink></li>
           </ul>
         </div>
 
-          {isPending?(<span className="navbar-end mr-10 loading loading-spinner loading-lg"></span>): user ? (
+          {isPending?(<div className="navbar-end mr-10 loading loading-spinner loading-lg"></div>): user ? (
             <div className="navbar-end gap-1">
               <Link href={`/profile`}><img src={user.image} alt={user.name}
               className='rounded-full w-12 h-12 mx-3'   /></Link>

@@ -1,50 +1,69 @@
-"use client"
+// "use client"
 
-import { use, useEffect, useState } from "react";
+// import { use, useEffect, useState } from "react";
 import { Card, } from "@heroui/react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { coursesFetch } from "@/lib/fetchData";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 
 
-const Details = ({ params }) => {
+const Details = async ({ params }) => {
 
-    const { id } = use(params);
-    const router = useRouter();
-    const [courses, setCourses] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { id } = await params;
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch("/coursesData.json");
-            const data = await res.json();
+    // const router = useRouter();
+    // const [courses, setCourses] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
-            setCourses(data);
-        };
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const res = await fetch("/coursesData.json");
+    //         const data = await res.json();
 
-        fetchData();
+    //         setCourses(data);
+    //     };
 
-    }, []);
+    //     fetchData();
 
-    const coursesDetails = courses.find(c => c.id == id);
+    // }, []);
+
+    // const coursesDetails = courses.find(c => c.id == id);
 
 
-    useEffect(() => {
-        const rawUser = localStorage.getItem("user");
-        const user = rawUser ? JSON.parse(rawUser) : null;
+    // useEffect(() => {
+    //     const rawUser = localStorage.getItem("user");
+    //     const user = rawUser ? JSON.parse(rawUser) : null;
 
-        if (!user) {
-            router.push("/login");
-        } else {
-            setLoading(false);
-        }
-    }, []);
+    //     if (!user) {
+    //         router.push("/login");
+    //     } else {
+    //         setLoading(false);
+    //     }
+    // }, []);
 
-    if (loading) return <p>Loading...</p>;
+    // if (loading) return <p>Loading...</p>;
+
+
+    const session = await auth.api.getSession({
+        headers: await headers()
+    });
+
+    const user = session?.user;
+    if (!user) {
+        redirect("/login");
+    }
+
+    const coursesDetails = await coursesFetch().then(courses => courses.find(c => c.id == id));
+    // console.log(coursesDetails);
 
 
     return (
         <div className="bg-green-50 py-10">
+           
 
             <div className="card bg-green-200 grid grid-cols-1 lg:grid-cols-2 w-9/10 p-10 mx-auto shadow-sm">
                 <figure className="">

@@ -2,22 +2,17 @@ import Banner from "@/components/Banner/Banner";
 import LearningTips from "@/components/LearningTips/LearningTips";
 import NewReleases from "@/components/NewReleases/NewReleases";
 import TOpCourses from "@/components/topcourses/TopCourses";
+import {  istructorFetch } from "@/lib/fetchData";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
 
 
-const istructorData = async () => {
-  const res = await fetch("http://localhost:3000/instructorData.json");
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const data = await res.json();
-  return data;
-}
+
+
 
 
 export default async function Home() {
-  const istructors = await istructorData();
+  const istructors = await istructorFetch();
   // console.log(istructors);
   return (
     <div>

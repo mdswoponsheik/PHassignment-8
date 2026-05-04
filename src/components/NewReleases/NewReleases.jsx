@@ -1,28 +1,37 @@
-"use client"
+
+import { coursesFetch } from "@/lib/fetchData";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
 
 
-const NewReleases = () => {
 
-    const [courses, setCourses] = useState([]);
+
+
+
+const NewReleases = async () => {
+
+    // const [courses, setCourses] = useState([]);
     
-      useEffect(() => {
-        const fetchData = async () => {
-          const res = await fetch("/coursesData.json");
-          const data = await res.json();
+    //   useEffect(() => {
+    //     const fetchData = async () => {
+    //       const res = await fetch("/coursesData.json");
+    //       const data = await res.json();
     
-          const topCourses = data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
-          setCourses(topCourses);
-        };
+    //       const topCourses = data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
+    //       setCourses(topCourses);
+    //     };
     
-        fetchData();
+    //     fetchData();
     
-      }, []);
+    //   }, []);
+
+    const latestCoursesData = await coursesFetch();
+    const courses = latestCoursesData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
+    // console.log(courses);
   return (
     <div>
       <div>

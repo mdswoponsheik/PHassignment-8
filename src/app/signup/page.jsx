@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useState } from "react";
@@ -55,7 +56,7 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   };
   return (
     <div className=" p-10 ">
-      <button onClick={handleGoogle} > google</button>
+      
       <h1 className="text-center text-4xl sm:text-5xl font-bold mb-10">Sign UP</h1>
       <Form className="flex w-120 mx-auto flex-col gap-4 bg-blue-100 rounded-2xl p-6" onSubmit={onSubmit}>
         <TextField
@@ -125,15 +126,22 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
           <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
           <FieldError />
         </TextField>
+
+        <div className="w-full flex items-center justify-center mt-5">
+          <button onClick={handleGoogle}
+          className="w-full text-xl bg-blue-500 text-white px-4 py-2 rounded-full flex justify-center items-center gap-2"> 
+          Google</button>
+        </div>
        
-        <div className="flex gap-2">
-          <Button type="submit">
+        <div className=" flex flex-col gap-2 ">
+          <Button className="w-full flex justify-center text-xl" type="submit">
             <Check />
             Submit
           </Button>
-          <Button type="reset" variant="secondary">
+          <Button className="w-full flex justify-center text-xl" type="reset" variant="secondary">
             Reset
           </Button>
+          <h2>Don't have an account? <Link href="/login" className="text-blue-500 hover:underline">Login</Link></h2>
         </div>
       </Form>
     </div>

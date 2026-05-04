@@ -1,14 +1,35 @@
 "use client"
 import EditProfile from '@/components/editProfile/EditProfile';
 import { authClient } from '@/lib/auth-client';
-import Link from 'next/link'
+import Link from 'next/link';
 import React from 'react'
 
 
 const MyProfilepage = () => {
+
+
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-  console.log(user);
+  // console.log(user);
+
+  const noData = !user && !isPending;
+
+  if (noData) {
+    return <div className="text-center py-10 w-1/3 mx-auto">
+      <h2 className="text-center text-3xl font-bold mt-10">No user data available.</h2>
+      <p className="text-center text-lg my-4">Please log in to view your profile.</p>
+      <Link href={`/login`}><button
+        className='bg-green-50 w-full border-green-500 border rounded-lg text-green-500 text-xl font-semibold mx-3  p-2'>LogIn</button></Link>
+    </div>;
+  }
+
+
+
+
+  // await authClient.updateUser({
+  //     image: user?.photo,
+  //     name: user?.name,
+  // })
   return (
     <div>
 
@@ -33,7 +54,7 @@ const MyProfilepage = () => {
             </Link> */}
             {/* The button to open modal */}
 
-            
+
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             <button className="btn rounded-lg bg-blue-500 px-4 py-2 text-white" onClick={() => document.getElementById('my_modal_2').showModal()}>Edit Profile</button>

@@ -37,6 +37,17 @@ const Loginpage = () => {
         } 
 
   };
+
+
+  
+  const handleGoogle = async () => {
+     const data = await authClient.signIn.social({
+    provider: "google",
+    image:"photo",
+    callbackURL: "/",
+  });
+    // console.log("Google sign-in response:", data);
+  };
   return (
     <div>
       
@@ -86,16 +97,22 @@ const Loginpage = () => {
             <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
             <FieldError />
           </TextField>
-          <div className="flex gap-2">
-            <Button type="submit">
-              <Check />
-              Submit
-            </Button>
-            <Button type="reset" variant="secondary">
-              Reset
-            </Button>
-          </div>
+          <div className="w-full flex items-center justify-center mt-5">
+          <button onClick={handleGoogle}
+          className="w-full text-xl bg-blue-500 text-white px-4 py-2 rounded-full flex justify-center items-center gap-2"> 
+          Google</button>
+        </div>
+       
+        <div className=" flex flex-col gap-2 ">
+          <Button className="w-full flex justify-center text-xl" type="submit">
+            <Check />
+            Submit
+          </Button>
+          <Button className="w-full flex justify-center text-xl" type="reset" variant="secondary">
+            Reset
+          </Button>
           <h2>Don't have an account? <Link href="/signup" className="text-blue-500 hover:underline">Sign Up</Link></h2>
+        </div>
         </Form>
       </div>
     </div>
