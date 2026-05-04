@@ -4,6 +4,7 @@ import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 import { useState } from "react";
+import { CgGoogle } from "react-icons/cg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -100,6 +101,7 @@ const Loginpage = () => {
           <div className="w-full flex items-center justify-center mt-5">
           <button onClick={handleGoogle}
           className="w-full text-xl bg-blue-500 text-white px-4 py-2 rounded-full flex justify-center items-center gap-2"> 
+          <CgGoogle />
           Google</button>
         </div>
        

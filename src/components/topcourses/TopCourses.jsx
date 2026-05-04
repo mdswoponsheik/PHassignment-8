@@ -7,13 +7,19 @@ import { useEffect, useState } from "react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
 
+
+
+
 const TOpCourses = () => {
+  
+const baseUrl =
+  process.env.BETTER_AUTH_URL || "http://localhost:3000";
 
      const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("/coursesData.json");
+      const res = await fetch(`${baseUrl}/coursesData.json`,{cache:"no-store"});
       const data = await res.json();
 
       const topCourses = data.sort((a, b) => b.rating - a.rating).slice(0, 4);

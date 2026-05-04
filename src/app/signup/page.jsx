@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useState } from "react";
+import { CgGoogle } from "react-icons/cg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -130,6 +131,7 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
         <div className="w-full flex items-center justify-center mt-5">
           <button onClick={handleGoogle}
           className="w-full text-xl bg-blue-500 text-white px-4 py-2 rounded-full flex justify-center items-center gap-2"> 
+          <CgGoogle />
           Google</button>
         </div>
        
@@ -141,7 +143,7 @@ const [isPasswordVisible, setIsPasswordVisible] = useState(false);
           <Button className="w-full flex justify-center text-xl" type="reset" variant="secondary">
             Reset
           </Button>
-          <h2>Don't have an account? <Link href="/login" className="text-blue-500 hover:underline">Login</Link></h2>
+          <h2>If have an account. <Link href="/login" className="text-blue-500 hover:underline">Login</Link></h2>
         </div>
       </Form>
     </div>
