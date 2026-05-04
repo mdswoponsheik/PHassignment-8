@@ -1,34 +1,39 @@
 
-"use client"
+// "use client"
+import { coursesFetch } from "@/lib/fetchData";
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
 
 
 
 
-const TOpCourses = () => {
+const TOpCourses = async () => {
   
-const baseUrl =
-  process.env.BETTER_AUTH_URL || "http://localhost:3000";
+// const baseUrl =
+//   process.env.BETTER_AUTH_URL || "http://localhost:3000";
 
-     const [courses, setCourses] = useState([]);
+//      const [courses, setCourses] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`${baseUrl}/coursesData.json`,{cache:"no-store"});
-      const data = await res.json();
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const res = await fetch(`${baseUrl}/coursesData.json`,{cache:"no-store"});
+//       const data = await res.json();
 
-      const topCourses = data.sort((a, b) => b.rating - a.rating).slice(0, 4);
-      setCourses(topCourses);
-    };
+//       const topCourses = data.sort((a, b) => b.rating - a.rating).slice(0, 4);
+//       setCourses(topCourses);
+//     };
 
-    fetchData();
+//     fetchData();
 
-  }, []);
+//   }, []);
+
+    const latestCoursesData = await coursesFetch();
+    const courses = latestCoursesData.sort((a, b) => b.rating - a.rating).slice(0, 4);
+    // console.log(courses);
   return (
     <div>
 
