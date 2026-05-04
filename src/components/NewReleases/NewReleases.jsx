@@ -43,7 +43,7 @@ const NewReleases = async () => {
               <Card className="w-full bg-green-50 items-stretch md:flex-row">
                 <div className=" shrink-0 overflow-hidden rounded-2xl h-[140px] sm:h-[140px] w-full sm:w-[260px] flex items-center">
                   {/* <Image src={course.image} alt="course image" width={50} height={50}></Image> */}
-                  <img src={course.image} alt="image"></img>
+                  <Image  src={course.image} alt="image" width={260} height={140} ></Image>
                 </div>
                 <div className="flex flex-1 flex-col gap-3">
                   <Card.Header className="gap-1">

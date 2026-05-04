@@ -1,18 +1,25 @@
 import { toast } from "react-toastify";
+export const dynamic = "force-dynamic";
+
+const baseUrl =
+  process.env.BETTER_AUTH_URL || "http://localhost:3000";
+
+const res = await fetch(`${baseUrl}/instructorData.json`);
 
 
 export const coursesFetch = async () => {
-  const res = await fetch("http://localhost:3000/coursesData.json"); 
+  const res = await fetch(`${baseUrl}/coursesData.json`);
   if (!res.ok) {
-    throw new toast.error("Failed to fetch data");  }
+    throw new toast.error("Failed to fetch data");
+  }
   const data = await res.json();
   return data;
 };
 
 
 
-export const istructorFetch = async () => {
-  const res = await fetch("http://localhost:3000/instructorData.json");
+export const instructorFetch = async () => {
+  const res = await fetch(`${baseUrl}/instructorData.json`);
   if (!res.ok) {
     throw new toast.error("Failed to fetch data");
   }
@@ -20,3 +27,5 @@ export const istructorFetch = async () => {
   return data;
  
   };
+
+ 

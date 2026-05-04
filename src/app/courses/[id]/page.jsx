@@ -8,6 +8,7 @@ import { coursesFetch } from "@/lib/fetchData";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 
 
@@ -67,10 +68,10 @@ const Details = async ({ params }) => {
 
             <div className="card bg-green-200 grid grid-cols-1 lg:grid-cols-2 w-9/10 p-10 mx-auto shadow-sm">
                 <figure className="">
-                    <img
+                    <Image
                         src={coursesDetails?.image}
                         alt={`${coursesDetails?.title}'s Image`}
-                        className=" rounded-xl" />
+                        className=" rounded-xl" width={260} height={140} />
                 </figure>
 
                 <div className="">
