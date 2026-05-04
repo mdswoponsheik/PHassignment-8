@@ -1,4 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  OnlineBD - Online Learning Platform (Next.js Project)
+
+##  Project Name
+OnlineBD
+
+##  Purpose
+OnlineBd is a modern online learning platform built with Next.js.  
+It allows users to browse courses, view course details, and manage their profile with authentication.  
+The goal of this project is to build a simple LMS (Learning Management System) like Udemy/Coursera.
+
+---
+
+##  Live URL
+ https://
+
+---
+
+##  Key Features
+
+- User Authentication (Login / Signup)
+- Course Listing Page
+- Dynamic Course Details Page
+- Protected Routes (Only logged-in users can access details)
+- User Profile & Edit Profile Feature
+- Search functionality in courses
+- Fast data fetching from JSON/API
+- Loading states for better UX
+- Custom Not Found Page
+- Responsive UI (Mobile + Desktop)
+- Clean and modern UI design
+
+---
+
+##  Tech Stack
+
+- Next.js (App Router)
+- React.js
+- Tailwind CSS
+- JavaScript (ES6+)
+- Better Auth (Authentication)
+- React Toastify (Notifications)
+
+---
+
+##  NPM Packages Used
+
+```bash
+next
+react
+react-dom
+tailwindcss
+react-toastify
+@heroui/react
+@gravity-ui/icons
+
+
 
 ## Getting Started
 
@@ -12,7 +67,20 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+
+
+
+
+
+
+
+
+
+
+
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import { useEffect, useState } from "react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
+import { motion } from "motion/react"
 
 
 
@@ -14,36 +15,37 @@ import { IoStar, IoStarHalf } from "react-icons/io5";
 
 const NewReleases = async () => {
 
-    // const [courses, setCourses] = useState([]);
-    
-    //   useEffect(() => {
-    //     const fetchData = async () => {
-    //       const res = await fetch("/coursesData.json");
-    //       const data = await res.json();
-    
-    //       const topCourses = data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
-    //       setCourses(topCourses);
-    //     };
-    
-    //     fetchData();
-    
-    //   }, []);
+  // const [courses, setCourses] = useState([]);
 
-    const latestCoursesData = await coursesFetch();
-    const courses = latestCoursesData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
-    // console.log(courses);
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const res = await fetch("/coursesData.json");
+  //       const data = await res.json();
+
+  //       const topCourses = data.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
+  //       setCourses(topCourses);
+  //     };
+
+  //     fetchData();
+
+  //   }, []);
+
+  const latestCoursesData = await coursesFetch();
+  const courses = latestCoursesData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)).slice(0, 2);
+  // console.log(courses);
   return (
     <div>
-      <div>
+      <div
+        className="animate__backInDown">
 
         <h3 className="text-center text-4xl sm:text-5xl font-bold my-10">New Releases</h3>
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto mb-10  gap-5 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-11/12 mx-auto mb-10  gap-5 ">
           {courses.map(course => {
             return <div key={course.id} className="">
               <Card className="w-full bg-green-50 items-stretch md:flex-row">
                 <div className=" shrink-0 overflow-hidden rounded-2xl h-[140px] sm:h-[140px] w-full sm:w-[260px] flex items-center">
                   {/* <Image src={course.image} alt="course image" width={50} height={50}></Image> */}
-                  <Image  src={course.image} alt="image" width={260} height={140} ></Image>
+                  <Image src={course.image} alt="image" width={260} height={140} ></Image>
                 </div>
                 <div className="flex flex-1 flex-col gap-3">
                   <Card.Header className="gap-1">
@@ -70,7 +72,7 @@ const NewReleases = async () => {
             </div>
           })}
         </div>
-    </div>
+      </div>
     </div>
   )
 }

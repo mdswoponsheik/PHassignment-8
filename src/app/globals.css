@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @import "@heroui/styles"; 
+@import 'animate.css';
 
 [data-theme="light"] {
   background: white;

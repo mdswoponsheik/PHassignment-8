@@ -24,7 +24,7 @@ export default async function Home() {
       <NewReleases></NewReleases>
       
 
-      <div className="bg-purple-50 py-10 border-t mt-1">
+      <div className="bg-purple-50 py-10 border-t mt-1 animate__animated animate__bounce animate__delay-2s">
         <h2 className="text-center text-4xl sm:text-5xl font-bold mb-10 ">{instructors?.length} Instructor Info</h2>
         <div className="w-9/10 mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-3">
 

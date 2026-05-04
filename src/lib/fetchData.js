@@ -1,5 +1,10 @@
 import { toast } from "react-toastify";
-export const dynamic = "force-dynamic";
+
+
+
+
+// export const dynamic = "force-dynamic";
+
 
 const baseUrl =
   process.env.BETTER_AUTH_URL || "http://localhost:3000";
